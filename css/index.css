@@ -1,0 +1,32 @@
+body{
+    background-color: rgba(243, 243, 243, 0.991) !important;
+}
+
+
+header{
+    border-bottom-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    background: rgb(13,110,253);
+    background: linear-gradient(197deg, rgba(13,110,253,1) 0%, rgba(42,126,250,1) 50%);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+
+/* Botoões da página */
+#btnCadastrar{
+    height: 60px;
+    max-width: 140px;
+}
+
+
+/* container vagas */
+#vagas-container{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Parágrafos página */
+p{
+    margin: 4px !important;
+}
