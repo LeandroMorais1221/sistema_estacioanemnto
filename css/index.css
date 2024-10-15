@@ -4,8 +4,8 @@ body{
 
 
 header{
-    border-bottom-left-radius: 4rem;
-    border-bottom-right-radius: 4rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
     background: rgb(13,110,253);
     background: linear-gradient(197deg, rgba(13,110,253,1) 0%, rgba(42,126,250,1) 50%);
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;

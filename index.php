@@ -1,3 +1,12 @@
+<?php
+
+
+
+
+
+?>
+
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -14,7 +23,7 @@
         <form class="d-flex gap-4 justify-content-center text-white">
             <div class="mb-3">
                 <label for="inputPlaca" class="form-label">Placa</label>
-                <input type="text" class="form-control" placeholder="Insira a placa do veículo" id="inputPlaca" name="inputPlaca" required>
+                <input type="text" class="form-control" placeholder="Insira a placa do veículo" id="inputPlaca" name="inputPlaca" maxlength="8">
             </div>
             <div class="mb-3">
                 <label for="inputDataEntrada" class="form-label">Data Entrada</label>
@@ -23,19 +32,19 @@
             <div class="mb-3">
                 <label for="selectCor" class="form-label">Cor</label>
                 <select class="form-select" id="selectCor" name="selectCor" required>
-                    <option value="" selected>Selecione a cor</option>
+                    <option value="" selected>Selecione</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="selectTipo" class="form-label">Tipo</label>
                 <select class="form-select" id="selectTipo" name="selectTipo" required>
-                    <option value="" selected>Selecione a Tipo</option>
+                    <option value="" selected>Selecione</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="selectTipo" class="form-label">Vaga</label>
                 <select class="form-select" id="selectTipo" name="selectTipo" required>
-                    <option value="" selected>Selecione a vaga</option>
+                    <option value="" selected>Selecione</option>
                 </select>
             </div>
             <div class="mt-3">
