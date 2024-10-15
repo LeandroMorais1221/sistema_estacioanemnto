@@ -30,3 +30,23 @@ header{
 p{
     margin: 4px !important;
 }
+
+/* relógio da página */
+#relogio-container{
+    width: 120px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.732);
+    border-radius: 1.2rem;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    text-align: center;
+}
+
+
+#relogio-container p{
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 1.4rem;
+
+}
