@@ -13,7 +13,7 @@ header{
 
 
 /* Botoões da página */
-#btnCadastrar{
+#btnEfetuarEntrada{
     height: 60px;
     max-width: 140px;
 }
@@ -34,13 +34,14 @@ p{
 /* relógio da página */
 #relogio-container{
     width: 120px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.732);
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 1.2rem;
-    position: absolute;
+    position: fixed;
     right: 10px;
     bottom: 10px;
     text-align: center;
+    padding: 0.2rem 0rem;
 }
 
 
@@ -48,5 +49,12 @@ p{
     color: rgb(255, 255, 255);
     font-weight: 700;
     font-size: 1.4rem;
+}
 
+
+.msg-container{
+    width: 300px;
+    position: absolute;
+    top: 30%;
+    right: 20%;
 }

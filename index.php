@@ -1,9 +1,28 @@
 <?php
 include_once("./db/conexao.php");
 
+if (isset($_GET["btnEfetuarEntrada"])) {
+    $placa = $_GET["inputPlaca"];
+    $dataEntrada = $_GET["inputDataEntrada"];
+    $cor = $_GET["selectCor"];
+    $tipo = $_GET["selectTipo"];
+    $vaga = $_GET["selectVaga"];
+
+    if ($placa && $dataEntrada && $cor && $tipo && $vaga) {
+        $sql = "INSERT INTO entradas_veiculos(placa,data_entrada, cor, tipo, vaga) VALUES('$placa','$dataEntrada','$cor','$tipo','$vaga')";
+        $sqlAtualizarVaga = "UPDATE vagas SET ocupada = '1' WHERE id_vaga = '$vaga'";
+        if($conexao->query($sql) && $conexao->query($sqlAtualizarVaga)){
+            
+
+        }
+        else{
+
+        }
+    } else {
+    }
+}
+
 ?>
-
-
 <!doctype html>
 <html lang="pt-br">
 
@@ -17,6 +36,7 @@ include_once("./db/conexao.php");
 </head>
 
 <body>
+
     <header class="container p-3 border">
         <form class="d-flex gap-4 justify-content-center text-white">
             <div class="mb-3">
@@ -48,20 +68,20 @@ include_once("./db/conexao.php");
 
                     $sqlTipos = "SELECT * FROM tipos_veiculos";
                     $resultTipos = $conexao->query($sqlTipos);
-                    while ($data = mysqli_fetch_object($resultTipos)) { ?>]
+                    while ($data = mysqli_fetch_object($resultTipos)) { ?>
                     <option value="<?= $data->id_veiculo ?>"><?= $data->nome ?></option>
                 <?php } ?>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="selectTipo" class="form-label">Vaga</label>
-                <select class="form-select" id="selectTipo" name="selectTipo" required>
+                <label for="selectVaga" class="form-label">Vaga</label>
+                <select class="form-select" id="selectVaga" name="selectVaga" required>
                     <option value="" selected>Selecione</option>
                     <?php
-                    $sqlVagas = "SELECT id_vaga, numero FROM vagas WHERE ocupada = 0";
+                    $sqlVagas = "SELECT id_vaga,numero FROM vagas WHERE ocupada = 0";
                     $resultVagas = $conexao->query($sqlVagas);
                     while ($data = mysqli_fetch_object($resultVagas)) { ?>
-                        <option value="<?= $data->$id_vaga ?>"><?= $data->numero ?></option>
+                        <option value="<?= $data->id_vaga ?>"><?= $data->numero ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -85,13 +105,11 @@ include_once("./db/conexao.php");
             <nav aria-label="Page navigation example">
                 <ul class="pagination my-0 mx-2">
                     <?php
-
-                    $sqlvagas = "SELECT numero FROM vagas WHERE ocupada = 0";
-                    $resultVagas = $conexao->query($sqlVagas)
-
+                    $sqlTotalVagas = "SELECT numero FROM vagas WHERE ocupada = 0";
+                    $resultTotalVagas = $conexao->query($sqlTotalVagas)
                     ?>
                     <li class="page-item"><a class="page-link bg-primary text-white" href="#">Vagas Disponiveis</a></li>
-                    <li class="page-item"><a class="page-link" href="#"><?=mysqli_num_rows($resultVagas)?></a></li>
+                    <li class="page-item"><a class="page-link" href="#"><?= mysqli_num_rows($resultTotalVagas) ?></a></li>
                 </ul>
             </nav>
         </div>
@@ -108,21 +126,30 @@ include_once("./db/conexao.php");
                 <p>Vaga: </p>
             </div>
         </div>
-
     </main>
 
 
     <footer>
         <div id="relogio-container">
-            <p></p>
+            <p>00:00:00</p>
         </div>
     </footer>
 
 
+    <?php
+    if (isset($_GET["msg"]) && $_GET["msg"] == 1) { ?>
+        <div class="msg-container">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Registro Efetuado Com <strong>Sucesso</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    <?php } ?>
 
 
     <script src="./js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>
